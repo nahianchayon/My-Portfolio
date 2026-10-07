@@ -1,8 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f7f6;
+  --foreground: #111111;
+  --muted: #707070;
+  --border: #eaeaea;
+  --panel: #ffffff;
+  --accent: #0a84ff;
+}
+
+.dark {
+  --background: #09090b;
+  --foreground: #f4f4f5;
+  --muted: #a1a1aa;
+  --border: #27272a;
+  --panel: #141416;
+  --accent: #38bdf8;
 }
 
 @theme inline {
@@ -12,15 +25,217 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(10, 132, 255, 0.25);
+  color: inherit;
+}
+
+a,
+button,
+input,
+textarea {
+  transition: all 180ms ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+label,
+button,
+a,
+span {
+  letter-spacing: -0.01em;
+}
+
+/* ========================================================
+   COMPREHENSIVE HIGH-CONTRAST DARK MODE OVERRIDES
+   Ensures every card, text, border, and badge is crisp & legible
+   ======================================================== */
+
+html.dark body {
+  background-color: #09090b !important;
+  color: #f4f4f5 !important;
+}
+
+/* Page root containers */
+html.dark .bg-\[\#f7f7f6\] {
+  background-color: #09090b !important;
+}
+
+/* Primary text headings & bold elements */
+html.dark .text-\[\#111111\],
+html.dark .text-black {
+  color: #f4f4f5 !important;
+}
+
+/* Body & description text */
+html.dark .text-\[\#333333\],
+html.dark .text-\[\#3a3a3a\],
+html.dark .text-\[\#3c3c3c\],
+html.dark .text-\[\#3d3d3d\],
+html.dark .text-\[\#3f3f3f\],
+html.dark .text-\[\#444444\],
+html.dark .text-\[\#4a4a4a\],
+html.dark .text-\[\#4d4d4d\],
+html.dark .text-\[\#4e4e4e\],
+html.dark .text-\[\#4f4f4f\],
+html.dark .text-\[\#515151\],
+html.dark .text-\[\#525252\],
+html.dark .text-\[\#555555\],
+html.dark .text-\[\#5a5a5a\],
+html.dark .text-\[\#5d5d5d\],
+html.dark .text-\[\#5f5f5f\],
+html.dark .text-\[\#666666\],
+html.dark .text-\[\#6b6b6b\],
+html.dark .text-\[\#6f6f6f\] {
+  color: #a1a1aa !important;
+}
+
+/* Muted metadata, kickers, and dates */
+html.dark .text-\[\#8a8a8a\],
+html.dark .text-\[\#8c8c8c\],
+html.dark .text-\[\#8d8d8d\],
+html.dark .text-\[\#8e8e8e\],
+html.dark .text-\[\#888888\],
+html.dark .text-\[\#868686\],
+html.dark .text-\[\#737373\],
+html.dark .text-\[\#707070\],
+html.dark .text-\[\#999999\] {
+  color: #71717a !important;
+}
+
+/* White panels & cards */
+html.dark .bg-white {
+  background-color: #141417 !important;
+}
+
+/* Subtle inner cards, pills, & badges */
+html.dark .bg-\[\#fafafa\],
+html.dark .bg-\[\#f9f9f9\],
+html.dark .bg-\[\#f8f8f8\],
+html.dark .bg-\[\#f7f7f7\],
+html.dark .bg-\[\#f4f4f4\],
+html.dark .bg-\[\#f0f0f0\] {
+  background-color: #1c1c20 !important;
+}
+
+/* Subtle card hover states */
+html.dark .hover\:bg-\[\#fafafa\]:hover,
+html.dark .hover\:bg-\[\#f7f7f7\]:hover,
+html.dark .hover\:bg-white:hover {
+  background-color: #242429 !important;
+}
+
+/* Borders across all cards & dividers */
+html.dark .border-\[\#ececec\],
+html.dark .border-\[\#ebebeb\],
+html.dark .border-\[\#eaeaea\],
+html.dark .border-\[\#e8e8e8\],
+html.dark .border-\[\#e5e5e5\],
+html.dark .border-\[\#e4e4e4\],
+html.dark .border-\[\#e2e2e2\],
+html.dark .border-\[\#f0f0f0\],
+html.dark .border-\[\#ededed\],
+html.dark .border-\[\#efefef\],
+html.dark .border-\[\#dedede\] {
+  border-color: #27272a !important;
+}
+
+/* Sticky Header in dark mode */
+html.dark header {
+  background-color: rgba(9, 9, 11, 0.85) !important;
+  border-color: #27272a !important;
+}
+
+/* Navbar active item underline */
+html.dark .after\:bg-\[\#111111\]::after {
+  background-color: #f4f4f5 !important;
+}
+
+/* Visual Stage backgrounds in project cards */
+html.dark .bg-gradient-to-br.from-\[\#fafafa\].to-\[\#f4f4f4\] {
+  background-image: linear-gradient(to bottom right, #18181c, #111113) !important;
+  border-color: #27272a !important;
+}
+
+/* Highlighted Quote Callout Banners in Thoughts */
+html.dark .bg-\[linear-gradient\(135deg\,\#f8faff_0\%\,\#f1f5fb_100\%\)\],
+html.dark .bg-\[linear-gradient\(135deg\,\#f8faff_0\%\,\#edf3fb_100\%\)\] {
+  background: linear-gradient(135deg, #0e1726 0%, #111c2e 100%) !important;
+  border-color: #1e3a5f !important;
+  color: #bfdbfe !important;
+}
+
+html.dark .text-\[\#2a3b4f\],
+html.dark .text-\[\#1e2f42\] {
+  color: #93c5fd !important;
+}
+
+/* Dark action buttons (e.g. Read full essay) */
+html.dark .bg-\[\#111111\] {
+  background-color: #27272a !important;
+  color: #ffffff !important;
+}
+
+html.dark .bg-\[\#111111\]:hover {
+  background-color: #3f3f46 !important;
+}
+
+/* Inputs and textareas in Guestbook */
+html.dark input,
+html.dark textarea {
+  background-color: #141417 !important;
+  color: #f4f4f5 !important;
+  border-color: #27272a !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #71717a !important;
+}
+
+/* Digitized handwritten signature: Invert ink to white */
+html.dark image[href*="signature"] {
+  filter: invert(1) brightness(1.25);
+}
+
+/* External Link arrow buttons */
+html.dark a[class*="rounded-full"][class*="border"] {
+  border-color: #27272a !important;
+  background-color: #18181c !important;
+  color: #f4f4f5 !important;
+}
+
+html.dark a[class*="rounded-full"][class*="border"]:hover {
+  border-color: #3f3f46 !important;
+  background-color: #27272a !important;
 }
