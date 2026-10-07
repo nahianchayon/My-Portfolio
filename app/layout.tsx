@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nahian1.vercel.app"),
   title: "Nahian Rahman Chayon | Computer Engineer & AI Developer",
   description:
     "Personal portfolio of Nahian Rahman Chayon, a Computer Engineering student exploring AI, deep learning, full-stack development, and intelligent systems.",
@@ -20,6 +21,8 @@ export const metadata: Metadata = {
     title: "Nahian Rahman Chayon | AI & Full-Stack Developer",
     description:
       "Computer Engineering student building AI systems, software products, and practical engineering experiences.",
+    url: "https://nahian1.vercel.app",
+    siteName: "Nahian Rahman Chayon Portfolio",
     type: "website",
   },
 };
